@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Empleados - Gestión</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Navbar -->
+    <nav class="top-navbar">
+      <img src="images/logo.png" class="logo" />
+      <div class="search-container">
+        <input class="search" placeholder="Buscar..." />
+      </div>
+    </nav>
+
+    <div class="main-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <a href="dashboard.html" class="nav-btn">Cargos</a>
+        <a href="empleados.html" class="nav-btn active">Empleados</a>
+        <a href="#" class="logout"><span>⎋</span> Cerrar sesión</a>
+      </aside>
+
+      <!-- Contenido -->
+      <div class="main-content">
+        <section>
+
+          <div class="empleados-toolbar">
+
+
+            <select id="filtroCargo" class="input">
+              <option value="">Todos los cargos</option>
+            </select>
+
+
+
+            <button id="nuevoEmpleadoBtn" class="btn">+ Nuevo</button>
+
+
+          </div>
+          
+          <div class="main-list" id="empleados-list"></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Modal para nuevo/editar empleado -->
+    <div id="empleadoModal" class="modal">
+      <div class="modal-content card">
+        <span class="close">&times;</span>
+        <h2 style="color: #338a4e; margin-bottom: 1.5rem;" id="modalTitle">Nuevo Empleado</h2>
+        <form id="empleadoForm">
+          <input type="hidden" id="empleadoId">
+          <div class="form-group">
+            <label class="label" for="nombreEmpleado">Nombre:</label>
+            <input class="input" type="text" id="nombreEmpleado" required>
+          </div>
+          <div class="form-group">
+            <label class="label" for="cedulaEmpleado">Cédula:</label>
+            <input class="input" type="text" id="cedulaEmpleado" required>
+          </div>
+          <div class="form-group">
+            <label class="label" for="cargoEmpleado">Cargo:</label>
+            <select class="input" id="cargoEmpleado" required>
+              <option value="">Seleccione un cargo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="label" for="turnoEmpleado">Turno:</label>
+            <select class="input" id="turnoEmpleado" required>
+              <option value="">Seleccione un turno</option>
+              <option value="AM">AM (Mañana)</option>
+              <option value="PM">PM (Tarde/Noche)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="label" for="estadoEmpleado">Estado:</label>
+            <select class="input" id="estadoEmpleado" required>
+              <option value="activo">Activo</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="inactivo">Inactivo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="label" for="iconoEmpleado">Icono:</label>
+            <select class="input" id="iconoEmpleado" required>
+              <option value="">Seleccione un icono</option>
+              <option value="👨‍💼">👨‍💼 Ejecutivo</option>
+              <option value="👩‍🍳">👩‍🍳 Cocina</option>
+              <option value="👨‍🔧">👨‍🔧 Mantenimiento</option>
+              <option value="👩‍💻">👩‍💻 Tecnología</option>
+              <option value="👨‍⚕️">👨‍⚕️ Salud</option>
+              <option value="👩‍🎨">👩‍🎨 Creativo</option>
+              <option value="👨‍🔬">👨‍🔬 Ciencia</option>
+              <option value="👩‍🚀">👩‍🚀 Especial</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="label" for="descripcionEmpleado">Descripción:</label>
+            <textarea class="input" id="descripcionEmpleado" style="height: 100px;"></textarea>
+          </div>
+          <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal para calificar empleado -->
+    <div id="calificacionModal" class="modal">
+      <div class="modal-content card">
+        <span class="close">&times;</span>
+        <h2 style="color: #338a4e; margin-bottom: 1.5rem;">Calificar Empleado</h2>
+        <form id="calificacionForm">
+          <input type="hidden" id="calificacionEmpleadoId">
+          <div class="criterios-container">
+            <!-- Los criterios se agregarán dinámicamente desde JavaScript -->
+          </div>
+          <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Guardar Calificación</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/empleados.js"></script>
+</body>
+</html>
