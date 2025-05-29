@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cargos - Gestión de Empleados</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Navbar superior -->
+    <nav class="top-navbar">
+      <img src="images/logo.png" class="logo" />
+      <div class="search-container">
+        <input class="search" placeholder="Buscar..." />
+      </div>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <div class="main-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <a href="dashboard.html" class="nav-btn active">Cargos</a>
+        <a href="empleados.html" class="nav-btn">Empleados</a>
+        <a href="#" class="logout"><span>⎋</span> Cerrar sesión</a>
+      </aside>
+
+      <!-- Contenido principal -->
+      <div class="main-content">
+        <section>
+
+          <div style="display:flex;align-items:center;justify-content:end;">
+            <button id="nuevoCargoBtn" class="btn" style="width:auto;padding:0.5rem 1rem;">+ Nuevo</button>
+          </div>
+
+
+          <div class="main-list" id="cargos-list"></div>
+
+
+
+        </section>
+      </div>
+    </div>
+
+    <!-- Modal para nuevo/editar cargo -->
+    <div id="cargoModal" class="modal">
+      <div class="modal-content card">
+        <span class="close">&times;</span>
+        <h2 style="color: #338a4e; margin-bottom: 1.5rem;" id="modalTitle">Nuevo Cargo</h2>
+
+        <form id="cargoForm">
+          <input type="hidden" id="cargoId">
+          <div class="form-group">
+            <label class="label" for="nombreCargo">Nombre:</label>
+            <input class="input" type="text" id="nombreCargo" required>
+          </div>
+          <div class="form-group">
+            <label class="label" for="colorCargo">Color:</label>
+            <select class="input" id="colorCargo" required>
+              <option value="blue">Azul</option>
+              <option value="green">Verde</option>
+              <option value="red">Rojo</option>
+              <option value="yellow">Amarillo</option>
+              <option value="purple">Morado</option>
+              <option value="orange">Naranja</option>
+              <option value="pink">Rosa</option>
+              <option value="teal">Turquesa</option>
+              <option value="cyan">Cian</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="label" for="descripcionCargo">Descripción:</label>
+            <textarea class="input" id="descripcionCargo" style="height: 100px;"></textarea>
+          </div>
+          <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Guardar</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
