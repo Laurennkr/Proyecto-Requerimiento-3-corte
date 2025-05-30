@@ -15,7 +15,6 @@
         <input class="search" placeholder="Buscar..." />
       </div>
     </nav>
-
     <!-- Contenedor principal -->
     <div class="main-container">
       <!-- Sidebar -->
@@ -24,30 +23,21 @@
         <a href="empleados.html" class="nav-btn">Empleados</a>
         <a href="#" class="logout"><span>⎋</span> Cerrar sesión</a>
       </aside>
-
       <!-- Contenido principal -->
       <div class="main-content">
         <section>
-
           <div style="display:flex;align-items:center;justify-content:end;">
             <button id="nuevoCargoBtn" class="btn" style="width:auto;padding:0.5rem 1rem;">+ Nuevo</button>
           </div>
-
-
           <div class="main-list" id="cargos-list"></div>
-
-
-
         </section>
       </div>
     </div>
-
     <!-- Modal para nuevo/editar cargo -->
     <div id="cargoModal" class="modal">
       <div class="modal-content card">
         <span class="close">&times;</span>
         <h2 style="color: #338a4e; margin-bottom: 1.5rem;" id="modalTitle">Nuevo Cargo</h2>
-
         <form id="cargoForm">
           <input type="hidden" id="cargoId">
           <div class="form-group">
@@ -74,7 +64,6 @@
           </div>
           <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Guardar</button>
         </form>
-        
       </div>
     </div>
   </div>
