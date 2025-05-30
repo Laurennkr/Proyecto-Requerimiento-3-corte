@@ -1,0 +1,575 @@
+/* ===== Estilos Base ===== */
+html, body {
+  height: 100vh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ===== Estructura Principal ===== */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-container {
+  background-color: transparent;
+  display: flex;
+  gap: 2em;
+  flex: 1;
+}
+
+/* ===== Componentes de Navegación ===== */
+.top-navbar {
+  padding: 2rem 2rem 2rem 7em;
+  gap: 8em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  font-weight: bold;
+  color: #338a4e;
+  white-space: nowrap;
+}
+
+.sidebar {
+  position: relative;
+  z-index: 0;
+  width: 280px;
+  box-sizing: border-box;
+  background: transparent;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ===== Botones y Elementos Interactivos ===== */
+.btn, .nav-btn, .login-btn, .mini-btn, .logout {
+  transition: background 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.nav-btn, .login-btn {
+  padding: 0.7rem 1.5rem;
+  border: 1px solid #a3d9a5;
+  background: #eaffea;
+  color: #338a4e;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.nav-btn {
+  width: 100%;
+  padding: 0.8rem 0;
+  margin-bottom: 0.5rem;
+}
+
+.nav-btn.active, .nav-btn:hover, .login-btn:hover {
+  background: #baf7c4;
+}
+
+.btn {
+  width: 80%;
+  padding: 0.9rem 0;
+  background: #baf7c4;
+  color: #338a4e;
+  border: none;
+  padding: 1em;
+  font-size: 1.2rem;
+}
+
+.btn:hover {
+  background: #a3d9a5;
+}
+
+.mini-btn {
+  background: #eaffea;
+  border: 1px solid #a3d9a5;
+  color: #338a4e;
+  border-radius: 16px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.mini-btn:hover {
+  background: #baf7c4;
+}
+
+.logout {
+  margin-top: auto;
+  align-self: center;
+  background: #fff;
+  border: 2px solid #338a4e;
+  color: #338a4e;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ===== Contenido Principal ===== */
+.main-content {
+  position: relative;
+  z-index: 100;
+  flex: 1;
+  background: #dff1db;
+  border-radius: 32px;
+  padding: 2rem;
+  margin-right: 2em;
+  margin-bottom: 2em;
+  overflow-y: auto;
+}
+
+.search-container {
+  width: 100%;
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+
+.search {
+  padding: 0.7rem 1.2rem;
+  flex: 8;
+  border-radius: 20px;
+  border: 1px solid #a3d9a5;
+  outline: none;
+  font-size: 1.1rem;
+  min-width: 300px;
+}
+
+/* ===== Componentes de Tarjetas ===== */
+.card, .main-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card {
+  padding: 2rem;
+  min-width: 350px;
+  max-width: 400px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-card {
+  position: relative;
+  padding: 1.5rem 1rem 1rem 2.5rem;
+  min-width: 200px;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+  gap: 0.8rem;
+  position: relative;
+  height: 200px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.card-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 20;
+}
+
+.main-card:hover .card-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.main-card:hover {
+  box-shadow: 0 8px 20px rgba(76, 169, 107, 0.1), 0 0 0 100vw rgba(0,0,0,0.1) inset;
+}
+
+.card-overlay .button-group {
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+.card-overlay .mini-btn {
+  background: #fff;
+  color: #338a4e;
+  border: 1px solid #a3d9a5;
+  border-radius: 16px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, color 0.2s;
+}
+
+.card-overlay .mini-btn:hover {
+  background: #baf7c4;
+  color: #338a4e;
+}
+
+.main-list {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 2rem;
+}
+
+/* ===== Elementos de Tarjetas ===== */
+.logo-circle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.logo-circle {
+  width: 70px;
+  min-height: 70px;
+  border: 1px solid #a3d9a5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4ca96b;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.main-card .logo-circle {
+  margin-bottom: 0;
+}
+
+.input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 20px;
+  background: #f3f8fa;
+  font-size: 1rem;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.label {
+  width: 100%;
+  color: #4ca96b;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.main-card .title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.main-card .description {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.4;
+  height: 3em;
+  overflow: hidden;
+}
+
+.main-card .extra-info {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+/* ===== Variantes de Color ===== */
+.main-card.green .logo-circle { background: #baf7c4; color: #338a4e; border: none; }
+.main-card.red .logo-circle { background: #ffd6d6; color: #d94c4c; border: none; }
+.main-card.blue .logo-circle { background: #d6eaff; color: #4c6fd9; border: none; }
+.main-card.yellow .logo-circle { background: #fff7d6; color: #d9b84c; border: none; }
+.main-card.purple .logo-circle { background: #e6d6ff; color: #6b4cd9; border: none; }
+.main-card.orange .logo-circle { background: #ffe6d6; color: #d96b4c; border: none; }
+.main-card.pink .logo-circle { background: #ffd6e6; color: #d94c8c; border: none; }
+.main-card.teal .logo-circle { background: #d6fff7; color: #4cd9b8; border: none; }
+.main-card.cyan .logo-circle { background: #d6f7ff; color: #4cb8d9; border: none; }
+
+/* ===== Indicadores de Estado ===== */
+.status-indicators {
+  padding-left: 1em;
+  display: flex;
+  gap: 6px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.3;
+  transition: opacity 0.3s, box-shadow 0.3s;
+}
+
+/* Colores más vibrantes para activos */
+.status-indicator.green { background-color: #29ac5f; }
+
+.status-indicator.yellow { background-color: #ecda37; }
+
+.status-indicator.red { background-color: #e74c3c; }
+
+.status-indicator.active {
+  opacity: 1;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.delete-btn {
+  position: absolute;
+  top: .6rem;
+  right: 1rem;
+  background-color: rgba(231, 76, 60, 0.1);
+  border: none;
+  border-radius: 9999px;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #e74c3c;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 30;
+}
+
+.delete-btn:hover {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #c0392b;
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Permitir clics en el botón de eliminar aunque esté el overlay */
+.main-card:hover .delete-btn {
+  pointer-events: auto;
+}
+
+/* ===== Estilos del Modal ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  animation: slideDown 0.3s ease;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #555;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+textarea.input {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.button-group button {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.button-group button.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.button-group button.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+@media (max-width: 500px) {
+  .button-group {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+  .button-group button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+.criterios-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.criterio-item {
+  background: #f8f9fa;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  margin-bottom: 1rem;
+}
+
+.criterio-item label {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: #495057;
+  font-weight: 500;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+.criterio-options {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.criterio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 120px;
+}
+
+.criterio-option input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.criterio-option label {
+  margin: 0;
+  font-weight: normal;
+  color: #6c757d;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.info-blocks {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.label-info {
+  color: #338a4e;
+  font-weight: 600;
+  margin-right: 0.2em;
+}
+
+.empleados-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.empleados-toolbar .btn {
+  width: auto;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+.empleados-toolbar .input {
+  width: 220px;
+  min-width: 160px;
+  font-size: 1rem;
+  padding: 0.7rem 1rem;
+}
